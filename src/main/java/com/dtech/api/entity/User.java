@@ -18,9 +18,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
 
 @Entity
 @Table(name = "cart_user_1999")
@@ -36,13 +36,6 @@ public class User {
 	private String email;
 	@Column(length = 50)
 	private String username;
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
 	@Column(name = "password", nullable = false)
 	private String password;
@@ -94,6 +87,12 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	
 }
