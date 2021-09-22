@@ -28,7 +28,7 @@ import com.dtech.api.tenant.service.UserService;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages = { "com.dtech.api.tenant.repository", "com.ajay.security.api.tenant.entity" })
+@ComponentScan(basePackages = { "com.dtech.api.tenant.repository", "com.dtech.api.tenant.entity" })
 @EnableJpaRepositories(basePackages = { "com.dtech.api.tenant.repository",
 		"com.dtech.api.tenant.service" }, entityManagerFactoryRef = "tenantEntityManagerFactory", transactionManagerRef = "tenantTransactionManager")
 public class TenantDatabaseConfig {

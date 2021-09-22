@@ -35,6 +35,7 @@ public class MasterDatabaseConfig {
 	
 	@Bean(name = "masterDataSource")
 	public DataSource masterDataSource() {
+		System.out.println("masterDataSource()**************");
 		HikariDataSource hikariDataSource = new HikariDataSource();
 		hikariDataSource.setDriverClassName(masterDbProperties.getDriverClassName());
 		hikariDataSource.setJdbcUrl(masterDbProperties.getJdbcUrl());
@@ -50,6 +51,7 @@ public class MasterDatabaseConfig {
 	@Primary
 	@Bean(name = "masterEntityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean masterEntityManagerFactoryBean() {
+		System.out.println("masterEntityManagerFactoryBean()**************");
 		LocalContainerEntityManagerFactoryBean em=new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(masterDataSource());
 		em.setPackagesToScan(new String[] {MasterTenantEntity.class.getPackage().getName(),MasterTenantRepository.class.getPackage().getName()});
@@ -64,6 +66,7 @@ public class MasterDatabaseConfig {
 	}
 
 	private Properties hibernateProperties() {
+		System.out.println("hibernateProperties()******************");
 		Properties properties=new Properties();
 		properties.put(org.hibernate.cfg.Environment.DIALECT, "org.hibernate.dialect.MySQL55Dialect");
 		properties.put(org.hibernate.cfg.Environment.SHOW_SQL, true);
@@ -76,6 +79,7 @@ public class MasterDatabaseConfig {
 	@Primary
 	@Bean(name = "masterTransactionManager")
 	public JpaTransactionManager masterTransactionManager(@Qualifier("masterEntityManagerFactory") EntityManagerFactory emf) {
+		System.out.println("masterTransactionManager()******************");
 		JpaTransactionManager transactionManager=new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(emf);
 		return transactionManager;
@@ -83,6 +87,7 @@ public class MasterDatabaseConfig {
 	
 	@Bean
 	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
+		System.out.println("exceptionTranslation()******************");
 		return new PersistenceExceptionTranslationPostProcessor();
 	}
 	
