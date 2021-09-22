@@ -16,13 +16,9 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
 
 @Entity
 @Table(name = "cart_1999")
@@ -49,4 +45,67 @@ public class Cart {
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getCartName() {
+		return cartName;
+	}
+
+	public void setCartName(String cartName) {
+		this.cartName = cartName;
+	}
+
+	public Timestamp getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Timestamp createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Timestamp getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Timestamp updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public List<CartItem> getCartItems() {
+		return cartItems;
+	}
+
+	public void setCartItems(List<CartItem> cartItems) {
+		this.cartItems = cartItems;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Cart(Integer id, String cartName, Timestamp createdAt, Timestamp updatedAt, List<CartItem> cartItems,
+			User user) {
+		super();
+		this.id = id;
+		this.cartName = cartName;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+		this.cartItems = cartItems;
+		this.user = user;
+	}
+
+	public Cart() {
+		super();
+	}
 }
