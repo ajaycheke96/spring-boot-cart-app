@@ -1,4 +1,4 @@
-package com.dtech.api.entity;
+package com.dtech.api.tenant.entity;
 
 import java.sql.Timestamp;
 
@@ -7,41 +7,49 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
+
 @Entity
-@Table(name = "roles_2")
-public class Role {
+@Table(name = "cart_item_1999")
+public class CartItem {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", updatable = false)
 	private Integer id;
 
+	@Column(name = "name", nullable = false)
 	private String name;
 
+	@JsonFormat(pattern = "YYYY-MM-DD 'T' HH:mm:ss", timezone = "IST")
 	@Column(name = "created_at")
-	@JsonFormat(pattern = "yyyy-MM-dd 'T' HH:mm:ss", timezone = "IST")
 	private Timestamp createdAt;
-
-	@Column(name = "guard_name")
-	private String guardName;
-
+	@JsonFormat(pattern = "YYYY-MM-DD 'T' HH:mm:ss", timezone = "IST")
 	@Column(name = "updated_at")
-	@JsonFormat(pattern = "yyyy-MM-dd 'T' HH:mm:ss", timezone = "IST")
 	private Timestamp updatedAt;
 
-	// bi-directional many-to-one association to ModelHasRole
-//	@OneToMany(mappedBy="role")
-//	private List<ModelHasRole> modelHasRoles;
+	@ManyToOne
+	@JoinColumn(name = "product_id")
+	private Product product;
 
-	// bi-directional many-to-many association to Permission
-//	@ManyToMany
-//	@JoinTable(name = "role_has_permissions", joinColumns = { @JoinColumn(name = "role_id") }, inverseJoinColumns = {
-//			@JoinColumn(name = "permission_id") })
-//	private List<Permission> permissions;
+	public CartItem(Integer id, String name, Timestamp createdAt, Timestamp updatedAt, Product product) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+		this.product = product;
+	}
 
-	public Role() {
+	public CartItem() {
 		super();
 	}
 
@@ -69,20 +77,20 @@ public class Role {
 		this.createdAt = createdAt;
 	}
 
-	public String getGuardName() {
-		return guardName;
-	}
-
-	public void setGuardName(String guardName) {
-		this.guardName = guardName;
-	}
-
 	public Timestamp getUpdatedAt() {
 		return updatedAt;
 	}
 
 	public void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	
 	

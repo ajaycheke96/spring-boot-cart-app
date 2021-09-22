@@ -1,4 +1,4 @@
-package com.dtech.api.service;
+package com.dtech.api.tenant.service;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,9 +11,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dtech.api.entity.Role;
-import com.dtech.api.entity.User;
-import com.dtech.api.repository.UserRepository;
+import com.dtech.api.tenant.entity.Role;
+import com.dtech.api.tenant.entity.User;
+import com.dtech.api.tenant.repository.UserRepository;
 
 @Service
 @Transactional

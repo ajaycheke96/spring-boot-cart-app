@@ -1,4 +1,4 @@
-package com.dtech.api.utils;
+package com.dtech.api.tenant.utils;
 
 import java.util.Date;
 import java.util.HashMap;

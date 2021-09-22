@@ -1,4 +1,4 @@
-package com.dtech.api.service;
+package com.dtech.api.tenant.service;
 
 import java.util.List;
 
@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-//import com.dtech.api.entity.AcademicSession;
-import com.dtech.api.entity.User;
-import com.dtech.api.repository.UserRepository;
+import com.dtech.api.tenant.entity.User;
+import com.dtech.api.tenant.repository.UserRepository;
 
 @Service
 @Transactional

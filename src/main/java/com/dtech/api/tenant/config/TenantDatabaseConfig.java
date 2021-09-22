@@ -20,10 +20,10 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.dtech.api.entity.User;
 import com.dtech.api.mastertenant.config.DataSourceBasedMultiTenantConnectionProviderImpl;
-import com.dtech.api.repository.UserRepository;
-import com.dtech.api.service.UserService;
+import com.dtech.api.tenant.entity.User;
+import com.dtech.api.tenant.repository.UserRepository;
+import com.dtech.api.tenant.service.UserService;
 
 
 @Configuration
