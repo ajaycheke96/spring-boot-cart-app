@@ -25,11 +25,12 @@ import com.dtech.api.mastertenant.config.DataSourceBasedMultiTenantConnectionPro
 import com.dtech.api.repository.UserRepository;
 import com.dtech.api.service.UserService;
 
+
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages = { "com.ajay.security.api.tenant.repository", "com.ajay.security.api.tenant.entity" })
-@EnableJpaRepositories(basePackages = { "com.ajay.security.api.tenant.repository",
-		"com.ajay.security.api.tenant.service" }, entityManagerFactoryRef = "tenantEntityManagerFactory", transactionManagerRef = "tenantTransactionManager")
+@ComponentScan(basePackages = { "com.dtech.api.tenant.repository", "com.ajay.security.api.tenant.entity" })
+@EnableJpaRepositories(basePackages = { "com.dtech.api.tenant.repository",
+		"com.dtech.api.tenant.service" }, entityManagerFactoryRef = "tenantEntityManagerFactory", transactionManagerRef = "tenantTransactionManager")
 public class TenantDatabaseConfig {
 
 	@Bean(name = "tenantJpaVendorAdapter")

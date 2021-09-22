@@ -1,4 +1,4 @@
-package com.dtech.api.masterTenant.entity;
+package com.dtech.api.mastertenant.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

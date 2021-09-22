@@ -2,7 +2,7 @@ package com.dtech.api.tenant.config;
 
 import javax.sql.DataSource;
 
-import com.dtech.api.masterTenant.entity.MasterTenantEntity;
+import com.dtech.api.mastertenant.entity.MasterTenantEntity;
 import com.zaxxer.hikari.HikariDataSource;
 
 public class DataSourceUtil {

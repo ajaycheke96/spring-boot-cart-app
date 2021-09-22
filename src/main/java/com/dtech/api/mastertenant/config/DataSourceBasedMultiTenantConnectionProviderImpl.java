@@ -10,7 +10,7 @@ import org.hibernate.engine.jdbc.connections.spi.AbstractDataSourceBasedMultiTen
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
-import com.dtech.api.masterTenant.entity.MasterTenantEntity;
+import com.dtech.api.mastertenant.entity.MasterTenantEntity;
 import com.dtech.api.mastertenant.repository.MasterTenantRepository;
 import com.dtech.api.tenant.config.DataSourceUtil;
 import com.dtech.api.tenant.model.TenantStorage;

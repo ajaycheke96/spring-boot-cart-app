@@ -18,14 +18,14 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.dtech.api.masterTenant.entity.MasterTenantEntity;
+import com.dtech.api.mastertenant.entity.MasterTenantEntity;
 import com.dtech.api.mastertenant.repository.MasterTenantRepository;
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = { "com.ajay.security.api.mastertenant.entity",
-		"com.ajay.security.api.mastertenant.repository" }, 
+@EnableJpaRepositories(basePackages = { "com.dtech.api.mastertenant.entity",
+		"com.dtech.api.mastertenant.repository" }, 
 		entityManagerFactoryRef = "masterEntityManagerFactory", 
 		transactionManagerRef = "masterTransactionManager")
 public class MasterDatabaseConfig {
