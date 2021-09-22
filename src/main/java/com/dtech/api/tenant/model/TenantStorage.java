@@ -1,4 +1,4 @@
-package com.dtech.api.model;
+package com.dtech.api.tenant.model;
 
 public class TenantStorage {
 

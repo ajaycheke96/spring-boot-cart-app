@@ -1,4 +1,4 @@
-package com.dtech.api.config;
+package com.dtech.api.tenant.config;
 
 import java.io.IOException;
 
@@ -15,8 +15,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.dtech.api.model.TenantStorage;
 import com.dtech.api.service.UserDetailsServiceImpl;
+import com.dtech.api.tenant.model.TenantStorage;
 import com.dtech.api.utils.JwtUtil;
 
 @Component
