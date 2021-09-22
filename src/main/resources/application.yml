@@ -9,6 +9,6 @@ multitenancy:
   master:
     datasource:
       driverClassName: com.mysql.cj.jdbc.Driver
-      jdbcUrl: jdbc:mysql://localhost:3306/diamond?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
-      username: diamond
-      password: da123
+      jdbcUrl: jdbc:mysql://0.0.0.0:3307/masterdb?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+      username: root
+      password: root
