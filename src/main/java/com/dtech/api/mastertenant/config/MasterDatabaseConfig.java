@@ -88,7 +88,9 @@ public class MasterDatabaseConfig {
 	@Bean
 	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
 		System.out.println("exceptionTranslation()******************");
-		return new PersistenceExceptionTranslationPostProcessor();
+		PersistenceExceptionTranslationPostProcessor processor= new PersistenceExceptionTranslationPostProcessor();
+		System.out.println("exceptionTranslation() processor******************: "+processor);
+		return processor;
 	}
 	
 	
