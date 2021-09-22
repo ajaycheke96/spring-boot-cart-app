@@ -1,4 +1,4 @@
-insert  into `master_tenant_tab`(`id`,`database_name`,`driver_class_name`,`jdbc_url`,`username`,`password`,`status`) values (1,'masterdb','com.mysql.cj.jdbc.Driver','jdbc:mysql://mysql-link:3306/masterdb?createDatabaseIfNotExist=true','root','root','true');
+insert  into `master_tenant_tab`(`id`,`database_name`,`driver_class_name`,`jdbc_url`,`username`,`password`,`status`) values (1,'masterdb','com.mysql.cj.jdbc.Driver','jdbc:mysql://172.17.0.1:3306/masterdb?createDatabaseIfNotExist=true','root','root','true');
 
 insert  into `roles_2`(`id`,`name`,`guard_name`,`created_at`,`updated_at`) values (1,'ROLE_SUPER_ADMIN','ROLE_SUPER_ADMIN','2021-04-28 12:55:44','2021-04-28 12:55:44');
 

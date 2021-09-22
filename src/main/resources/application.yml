@@ -9,6 +9,6 @@ multitenancy:
   master:
     datasource:
       driverClassName: com.mysql.cj.jdbc.Driver
-      jdbcUrl: jdbc:mysql://mysql-link:3307/masterdb?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+      jdbcUrl: jdbc:mysql://172.17.0.1:3306/masterdb?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
       username: root
       password: root
