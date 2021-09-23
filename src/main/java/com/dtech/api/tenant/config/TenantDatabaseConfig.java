@@ -35,12 +35,14 @@ public class TenantDatabaseConfig {
 
 	@Bean(name = "tenantJpaVendorAdapter")
 	public JpaVendorAdapter jpaVendorAdapter() {
+		System.out.println("jpaVendorAdapter()******************");
 		return new HibernateJpaVendorAdapter();
 	}
 
 	@Bean(name = "tenantTransactionManager")
 	public JpaTransactionManager tenantTransactionManager(
 			@Qualifier("tenantEntityManagerFactory") EntityManagerFactory tenantEntityManager) {
+		System.out.println("tenantTransactionManager()******************");
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(tenantEntityManager);
 		return transactionManager;
@@ -55,6 +57,7 @@ public class TenantDatabaseConfig {
 	@ConditionalOnBean(name = "masterEntityManagerFactory")
 	public MultiTenantConnectionProvider multiTenantConnectionProvider() {
 		// Autowires the multi connection provider
+		System.out.println("multitenantConnectionProvider()******************");
 		return new DataSourceBasedMultiTenantConnectionProviderImpl();
 	}
 
@@ -65,6 +68,7 @@ public class TenantDatabaseConfig {
 	 */
 	@Bean(name = "currentTenantIdentifierResolver")
 	public CurrentTenantIdentifierResolver currentTenantIdentifierResolver() {
+		System.out.println("currentTenantIdentifierResolver()******************");
 		return new CurrentTenantIdentifierResolverImpl();
 	}
 
@@ -82,7 +86,7 @@ public class TenantDatabaseConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(
 			@Qualifier("datasourceBasedMultitenantConnectionProvider") MultiTenantConnectionProvider connectionProvider,
 			@Qualifier("currentTenantIdentifierResolver") CurrentTenantIdentifierResolver tenantResolver) {
-
+		System.out.println("entityManagerFactory()******************");
 		LocalContainerEntityManagerFactoryBean emfBean = new LocalContainerEntityManagerFactoryBean();
 		// All tenant related entities, repositories and service classes must be scanned
 		emfBean.setPackagesToScan(new String[] { User.class.getPackage().getName(),

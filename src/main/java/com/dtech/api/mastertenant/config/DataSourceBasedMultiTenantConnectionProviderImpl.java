@@ -31,6 +31,7 @@ public class DataSourceBasedMultiTenantConnectionProviderImpl
 
 	@Override
 	protected DataSource selectAnyDataSource() {
+		System.out.println("selectAnyDataSource()******************");
 		if (dataSourcesMtApp.isEmpty()) {
 			List<MasterTenantEntity> masterTenants = masterTenantRepository.findAll();
 			for (MasterTenantEntity masterTenant : masterTenants) {
@@ -43,6 +44,7 @@ public class DataSourceBasedMultiTenantConnectionProviderImpl
 
 	@Override
 	protected DataSource selectDataSource(String tenantIdentifier){
+		System.out.println("selectDataSource()******************");
 
 		tenantIdentifier = initializeTenantIfLost(tenantIdentifier);
 		
@@ -64,6 +66,7 @@ public class DataSourceBasedMultiTenantConnectionProviderImpl
 	}
 
 	private String initializeTenantIfLost(String tenantIdentifier) {
+		System.out.println("initializeTenantIfLost()******************");
 		if (tenantIdentifier != TenantStorage.getCurrentTenent()) {
 			tenantIdentifier = TenantStorage.getCurrentTenent();
 		}
