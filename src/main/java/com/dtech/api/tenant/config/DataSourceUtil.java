@@ -8,6 +8,7 @@ import com.zaxxer.hikari.HikariDataSource;
 public class DataSourceUtil {
 
 	public static DataSource createAndConfigureDataSource(MasterTenantEntity source) {
+		System.out.println("createAndConfigureDataSource()******************");
 		HikariDataSource hikariDataSource = new HikariDataSource();
 		hikariDataSource.setDriverClassName(source.getDriverClassName());
 		hikariDataSource.setJdbcUrl(source.getJdbcUrl());
