@@ -1,5 +1,16 @@
 version: '3'
 services:
+  mysqllink:
+    image: mysql:5.7
+    container_name: mysqllink
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=masterdb
+      - MYSQL_USER=diamond
+      - MYSQL_PASSWORD=da123
+    volumes:
+      - "./scripts/schema.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "./scripts/data.sql:/docker-entrypoint-initdb.d/2.sql"
   cart-api:
     image: ajaycheke96/cart-api
     container_name: cart-api
