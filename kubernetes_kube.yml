@@ -1,0 +1,91 @@
+# For Spring Boot
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart-controller
+  labels:
+    app: cart-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cart-api
+  template:
+    metadata:
+      labels:
+        app: cart-api
+    spec:
+      containers:
+      - name: cart-api
+        image: ajaycheke96/cart-api:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cart-api
+  labels:
+    app: cart-api
+spec:
+  ports:
+  - nodePort: 30169
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: cart-api
+  type: NodePort
+---
+# For Mysql
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+     name: mysql-link
+  name: mysql-controller
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mysql-link
+    spec:
+      containers:
+      - name: mysql-link
+        image: mysql:5.7
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_DATABASE
+          value: masterdb
+        - name: MYSQL_USER
+          value: diamond
+        - name: MYSQL_PASSWORD
+          value: da123
+        ports:
+        - containerPort: 3306
+          hostPort: 3306
+          name: mysql-link
+        volumeMounts:
+        - name: mysql-persistance-storage
+          mountPath: /data/db
+      volumes:
+      - name: mysql-persistance-storage
+        hostPath:
+          path: /tmp/dbbackup
+
+---
+# Node Port Service for Mysql
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+     name: mysql-link
+  name: mysql-link
+spec:
+  selector:
+    name: mysql-link
+  ports:
+  - port: 3306
+    targetPort: 3306
+  type: ClusterIP
