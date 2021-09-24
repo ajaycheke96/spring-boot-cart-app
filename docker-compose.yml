@@ -12,7 +12,7 @@ services:
       - "./scripts/schema.sql:/docker-entrypoint-initdb.d/1.sql"
       - "./scripts/data.sql:/docker-entrypoint-initdb.d/2.sql"
   cart-api:
-    image: cart-api
+    image: ajaycheke96/cart-api
     container_name: cart-api
     ports:
       - "8080:8080"
