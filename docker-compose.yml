@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   mysql-link:
     image: mysql:5.7
@@ -11,9 +11,9 @@ services:
     volumes:
       - "./scripts/schema.sql:/docker-entrypoint-initdb.d/1.sql"
       - "./scripts/data.sql:/docker-entrypoint-initdb.d/2.sql"
-  spring-app:
-    image: spring-app
-    container_name: spring-app
+  cart-api:
+    image: cart-api
+    container_name: cart-api
     ports:
       - "8080:8080"
     build: 
