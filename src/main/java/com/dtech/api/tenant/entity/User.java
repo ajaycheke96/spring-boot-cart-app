@@ -23,15 +23,15 @@ import lombok.NoArgsConstructor;
 //@NoArgsConstructor
 
 @Entity
-@Table(name = "cart_user_1999")
+@Table(name = "users_2")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false)
 	private Integer id;
-	@Column(name = "name", nullable = false)
-	private String name;
+//	@Column(name = "name", nullable = false)
+//	private String name;
 	@Column(name = "email", nullable = false)
 	private String email;
 	@Column(length = 50)
@@ -56,13 +56,13 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
 
 	public String getEmail() {
 		return email;

@@ -9,6 +9,6 @@ multitenancy:
   master:
     datasource:
       driverClassName: com.mysql.cj.jdbc.Driver
-      jdbcUrl: jdbc:mysql://65.0.106.67:3306/masterdb?allowPublicKeyRetrieval=true&useSSL=false
-      username: root
-      password: root
+      jdbcUrl: jdbc:mysql://${DB_HOST}:3306/${DB_NAME}?allowPublicKeyRetrieval=true&useSSL=false
+      username: ${DB_USER}
+      password: ${DB_PASSWORD}
