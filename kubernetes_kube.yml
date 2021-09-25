@@ -1,16 +1,40 @@
-# For Mysql
+# Define a 'Service' To Expose mysql to Other Services
 apiVersion: v1
-kind: ReplicationController
+kind: Service
 metadata:
+  name: mysqllink  # DNS name
   labels:
-     name: mysqllink
-  name: mysql-controller
+    app: mysqllink
+    tier: database
 spec:
-  replicas: 1
+  ports:
+    - port: 3306
+      targetPort: 3306
+  selector:       # mysql Pod Should contain same labels
+    app: mysqllink
+    tier: database
+  clusterIP: None  # We Use DNS, Thus ClusterIP is not relevant
+---
+# Configure 'Deployment' of mysql server
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysqllink
+  labels:
+    app: mysqllink
+    tier: database
+spec:
+  selector: # mysql Pod Should contain same labels
+    matchLabels:
+      app: mysqllink
+      tier: database
+  strategy:
+    type: Recreate
   template:
     metadata:
-      labels:
+      labels: # Must match 'Service' and 'Deployment' selectors
         app: mysqllink
+        tier: database
     spec:
       containers:
       - name: mysqllink
@@ -35,22 +59,6 @@ spec:
       - name: mysql-persistance-storage
         hostPath:
           path: /tmp/dbbackup
-
----
-# Node Port Service for Mysql
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-     name: mysqllink
-  name: mysqllink
-spec:
-  selector:
-    name: mysqllink
-  ports:
-  - port: 3306
-    targetPort: 3306
-  type: ClusterIP
 
 ---
 # For Spring Boot
