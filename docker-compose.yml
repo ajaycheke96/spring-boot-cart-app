@@ -14,11 +14,6 @@ services:
   cart-api:
     image: ajaycheke96/cart-api
     container_name: cart-api
-    environment:
-      - DB_HOST=mysqllink
-      - DB_NAME=masterdb
-      - DB_USER=root
-      - DB_PASSWORD=root
     ports:
       - "8080:8080"
     build: 
